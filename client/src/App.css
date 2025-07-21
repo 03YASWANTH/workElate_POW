@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+
+/* Custom Glassmorphic Styles */
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-xl bg-white/10 border border-white/20 shadow-2xl;
+  }
+  
+  .glass-input {
+    @apply backdrop-blur-xl bg-white/5 border border-white/20 shadow-lg;
+  }
+  
+  .glass-button {
+    @apply backdrop-blur-xl bg-white/10 border border-white/20 shadow-lg hover:bg-white/20 hover:scale-105 transform transition-all duration-200;
+  }
+  
+  .gradient-bg {
+    background: linear-gradient(135deg, 
+      rgba(59, 130, 246, 0.8) 0%,
+      rgba(147, 51, 234, 0.8) 25%,
+      rgba(236, 72, 153, 0.8) 50%,
+      rgba(239, 68, 68, 0.8) 75%,
+      rgba(245, 158, 11, 0.8) 100%
+    );
+    background-size: 300% 300%;
+    animation: gradientShift 8s ease infinite;
+  }
+  
+  .text-shadow-lg {
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Animations */
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.5;
+  }
+  33% {
+    transform: translateY(-10px) rotate(2deg);
+    opacity: 0.8;
+  }
+  66% {
+    transform: translateY(-5px) rotate(-1deg);
+    opacity: 0.6;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Custom slider styling */
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.slider::-webkit-slider-track {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  height: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.slider::-moz-range-track {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  height: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Global styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+/* Disable text selection on canvas area */
+.canvas-container * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Touch support */
+@media (hover: none) and (pointer: coarse) {
+  .glass-button:hover {
+    transform: none;
+    background: rgba(255, 255, 255, 0.15);
+  }
+}
